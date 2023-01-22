@@ -1,0 +1,25 @@
+name: 'Enhanced ENV Azure key vault - Get Secrets'
+description: 'Get Secrets from Azure Key Vault instance and set as ENV variables.'
+inputs:
+  KEY_VAULT_URI:
+    description: 'Name of the azure key vault'
+    required: true
+  ENVIRONMENT:
+    description: 'Environment name, e.g.: [PROD | STAGE | TEST]'
+    required: true
+  TYPE:
+    description: 'Type of parameter, e.g.: [frontend | backend]'
+    required: true
+outputs:
+  env:
+    description: 'The environment parameters'
+  json:
+    description: 'The environment parameters in json for AppService config'
+  terraform:
+    description: 'The environment parameters as terraform secrets in JSON format'
+branding:
+  icon: 'download-cloud'
+  color: 'blue'
+runs:
+  using: 'node12'
+  main: 'lib/index.js'
